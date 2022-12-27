@@ -6,16 +6,21 @@ import { About } from './Pages/About';
 import { Contact } from './Pages/Contact';
 import { Projects } from './Pages/Projects';
 import { theme } from './theme';
+import { Nav } from './Components/Nav/Nav';
+import { GlobalStyle } from './GlobalStyles';
+import { routes } from './utils/routes';
 
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <BrowserRouter>
+        <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path={routes.home} element={<Home />} />
+          <Route path={routes.about} element={<About />} />
+          <Route path={routes.projects} element={<Projects />} />
+          <Route path={routes.contact} element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
