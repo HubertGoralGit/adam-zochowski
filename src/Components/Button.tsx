@@ -19,5 +19,4 @@ const StyledButton = styled.button`
   color: ${({ theme }) => theme.colors.white};
   border: none;
   cursor: pointer;
-  box-shadow: 0px 0px 40px 0px rgba(66, 68, 90, 1);
 `;
