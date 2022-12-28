@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useIsMobile } from '../../hooks/useIsMobile';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export const HomeAboutUsSection = () => {
   const isMobile = useIsMobile();
