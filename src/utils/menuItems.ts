@@ -10,7 +10,7 @@ export const menuItems = [
     url: routes.about,
   },
   {
-    name: 'Projekty',
+    name: 'Oferta',
     url: routes.projects,
   },
   {

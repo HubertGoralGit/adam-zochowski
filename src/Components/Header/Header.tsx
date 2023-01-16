@@ -12,7 +12,7 @@ export const Header = () => {
       <Hero>
         <div>
           <Content isMobile={isMobile}>
-            <h2>Usługi wykończeniowe</h2>
+            <h2>Usługi remontowo budowlane</h2>
             <h1>Adam Żochowski</h1>
             <Button text={'Dowiedz się więcej'} />
           </Content>
