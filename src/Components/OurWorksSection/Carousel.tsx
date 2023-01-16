@@ -9,7 +9,11 @@ import HomeImage from '../../Images/dom.jpg';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { Button } from '../Button';
 
-export const Carousel = () => {
+interface Props {
+  images: string[];
+}
+
+export const Carousel = ({ images }: Props) => {
   const isMobile = useIsMobile();
   return (
     <Swiper
@@ -18,23 +22,13 @@ export const Carousel = () => {
       modules={[Pagination]}
       className="mySwiper"
     >
+      {images.map((image) => (
+        <StyledSwiperSlide key={image}>
+          <Image src={image} />
+        </StyledSwiperSlide>
+      ))}
       <StyledSwiperSlide>
-        <Image src={HomeImage} />
-      </StyledSwiperSlide>
-      <StyledSwiperSlide>
-        <Image src={HomeImage} />
-      </StyledSwiperSlide>
-      <StyledSwiperSlide>
-        <Image src={HomeImage} />
-      </StyledSwiperSlide>
-      <StyledSwiperSlide>
-        <Image src={HomeImage} />
-      </StyledSwiperSlide>
-      <StyledSwiperSlide>
-        <Image src={HomeImage} />
-      </StyledSwiperSlide>
-      <StyledSwiperSlide>
-        <Image src={HomeImage} />
+        <Image src={images[images.length - 1]} />
         <div>
           <Button text="Zobacz więcej" />
         </div>

@@ -1,16 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useIsMobile } from '../../hooks/useIsMobile';
-import { ExampeWork } from './ExampeWork';
+import { ExampleWork } from './ExampleWork';
 
-export const OurWorksSection = () => {
+interface Props {
+  data: any;
+  loading: boolean;
+}
+
+export const OurWorksSection = ({ data, loading }: Props) => {
   const isMobile = useIsMobile();
+  const tags =
+    data &&
+    [].concat(
+      ...data.map((object) => object.tags.length && object.tags[0].split(', ')),
+    );
+  const uniqueTags =
+    data &&
+    tags.filter(
+      (tag, index) => tags.indexOf(tag) === index && typeof tag === 'string',
+    );
   return (
     <Wrapper isMobile={isMobile}>
-      <h2>Projekty</h2>
-      <ExampeWork title="Dachy" />
-      <ExampeWork title="Mieszkania" />
-      <ExampeWork title="Elewacje" />
+      <h2>Nasza oferta</h2>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          {uniqueTags.length &&
+            uniqueTags.map((item) => (
+              <ExampleWork
+                key={item}
+                title={item}
+                items={
+                  data &&
+                  data.filter(
+                    (i) => !!i.tags[0] && i.tags[0].split(', ').includes(item),
+                  )
+                }
+              />
+            ))}
+        </>
+      )}
     </Wrapper>
   );
 };

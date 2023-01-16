@@ -33,7 +33,7 @@ const Wrapper = styled.section<{ isMobile: boolean }>`
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  margin: ${({ isMobile }) => (isMobile ? '40px auto' : '100px auto')};
+  margin: ${({ isMobile }) => (isMobile ? '40px auto' : '150px auto 100px')};
   padding: ${({ isMobile }) => isMobile && '0 20px'};
   color: ${({ theme }) => theme.colors.darkBlue};
 
