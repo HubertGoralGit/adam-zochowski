@@ -31,7 +31,9 @@ export const OurWorksSection = ({ data, loading }: Props) => {
             uniqueTags.map((item) => (
               <ExampleWork
                 key={item}
-                title={item}
+                title={
+                  item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
+                }
                 items={
                   data &&
                   data.filter(
